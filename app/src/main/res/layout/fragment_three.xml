@@ -5,11 +5,14 @@
     tools:context="th.co.creativeme.myslidepage.ThreeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Three"
-        android:textSize="30dp"
-        android:layout_gravity="center"/>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/img3page" />
+    </LinearLayout>
 </FrameLayout>
