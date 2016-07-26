@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +14,8 @@ public class MainActivity extends FragmentActivity {
 
     private ViewPager mFmPager;
     private TextView mTvSkip;
-    private Button mBtnFooter;
+    private TextView mBtnFooter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         mTvSkip = (TextView)findViewById(R.id.tvSkip);
+        mBtnFooter = (TextView) findViewById(R.id.btnFooter);
 
         mFmPager = (ViewPager) findViewById(R.id.fmPager);
         final MyPageAdapter adapter = new MyPageAdapter(getSupportFragmentManager());
@@ -40,14 +41,19 @@ public class MainActivity extends FragmentActivity {
                     case 0:
                         mRdGroup.check(R.id.rdBtn1);
                         mTvSkip.setText("SKIP");
+                        mBtnFooter.setText("NEXT");
+
                         break;
                     case 1:
                         mRdGroup.check(R.id.rdBtn2);
                         mTvSkip.setText("SKIP");
+                        mBtnFooter.setText("NEXT");
                         break;
                     case 2:
                         mRdGroup.check(R.id.rdBtn3);
                         mTvSkip.setText(null);
+                        mBtnFooter.setText("LET'S SIGN UP");
+                        break;
                 }
 
             }
@@ -66,10 +72,6 @@ public class MainActivity extends FragmentActivity {
                 Toast.makeText(MainActivity.this, "go to dummy sign up page", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
 
         mFmPager.setAdapter(adapter);
 
