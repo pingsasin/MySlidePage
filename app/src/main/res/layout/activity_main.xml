@@ -22,7 +22,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:text="SKIP"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -54,24 +54,28 @@
             android:id="@+id/rdGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkedButton="@+id/rdBtn1"
             android:layout_gravity="center_horizontal|center_vertical"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/rdBtn1"
+                android:id="@id/rdBtn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true" />
+                android:clickable="false"
+                />
 
             <RadioButton
                 android:id="@+id/rdBtn2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:clickable="false"/>
 
             <RadioButton
                 android:id="@+id/rdBtn3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:clickable="false"/>
 
 
         </RadioGroup>
@@ -93,7 +97,7 @@
             android:gravity="center"
             android:text="NEXT"
             android:textColor="#ffffff"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
 
     </LinearLayout>
