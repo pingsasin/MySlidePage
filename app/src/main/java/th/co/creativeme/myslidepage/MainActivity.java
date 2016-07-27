@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,7 +16,9 @@ public class MainActivity extends FragmentActivity {
 
     private ViewPager mFmPager;
     private TextView mTvSkip;
-    private TextView mBtnFooter;
+    private Button mBtnNext;
+
+    private String TAG = "Main";
 
 
     @Override
@@ -22,12 +26,23 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTvSkip = (TextView)findViewById(R.id.tvSkip);
-        mBtnFooter = (TextView) findViewById(R.id.btnFooter);
-
+        mTvSkip = (TextView) findViewById(R.id.tvSkip);
+        mBtnNext = (Button) findViewById(R.id.btnFooter);
         mFmPager = (ViewPager) findViewById(R.id.fmPager);
-        final MyPageAdapter adapter = new MyPageAdapter(getSupportFragmentManager());
 
+        mBtnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(TAG, "Click");
+
+                mFmPager.setCurrentItem(mFmPager.getCurrentItem() + 1, true);
+
+
+            }
+
+        });
+        final MyPageAdapter adapter = new MyPageAdapter(getSupportFragmentManager());
+        Log.i(TAG, "onCreate");
         final RadioGroup mRdGroup = (RadioGroup) findViewById(R.id.rdGroup);
 
         mFmPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -37,22 +52,35 @@ public class MainActivity extends FragmentActivity {
 
             @Override
             public void onPageSelected(final int position) {
-                switch (position){
+                switch (position) {
                     case 0:
                         mRdGroup.check(R.id.rdBtn1);
                         mTvSkip.setText("SKIP");
-                        mBtnFooter.setText("NEXT");
-
+                        mBtnNext.setText("NEXT");
+                        Log.i(TAG, "Case 0");
                         break;
                     case 1:
                         mRdGroup.check(R.id.rdBtn2);
                         mTvSkip.setText("SKIP");
-                        mBtnFooter.setText("NEXT");
+                        mBtnNext.setText("NEXT");
+                        Log.i(TAG, "Case 1");
                         break;
                     case 2:
                         mRdGroup.check(R.id.rdBtn3);
                         mTvSkip.setText(null);
-                        mBtnFooter.setText("LET'S SIGN UP");
+                        mBtnNext.setText("LET'S SIGN UP");
+                        Log.i(TAG, "Case 2");
+
+                        mBtnNext.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Log.i(TAG, "Dummy Page");
+                                Intent i = new Intent(getApplicationContext(), DummyPage.class);
+                                startActivity(i);
+                                Toast.makeText(MainActivity.this, "go to dummy sign up page", Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
                         break;
                 }
 
@@ -64,10 +92,12 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
+
         mTvSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),DummyPage.class);
+                Log.i(TAG, "Dummy Page");
+                Intent i = new Intent(getApplicationContext(), DummyPage.class);
                 startActivity(i);
                 Toast.makeText(MainActivity.this, "go to dummy sign up page", Toast.LENGTH_SHORT).show();
             }
