@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 public class MyPageAdapter extends FragmentPagerAdapter{
 
+
+
     public MyPageAdapter(FragmentManager fm){
         super(fm);
     }
@@ -26,4 +28,6 @@ public class MyPageAdapter extends FragmentPagerAdapter{
             return new ThreeFragment();
         return null;
     }
+
+
 }

@@ -38,6 +38,8 @@ public class MainActivity extends FragmentActivity {
                 mFmPager.setCurrentItem(mFmPager.getCurrentItem() + 1, true);
 
 
+
+
             }
 
         });
@@ -106,6 +108,8 @@ public class MainActivity extends FragmentActivity {
         mFmPager.setAdapter(adapter);
 
     }
+
+    //// TODO: 11/7/2016 AD test create new branch 
 
 
 }
