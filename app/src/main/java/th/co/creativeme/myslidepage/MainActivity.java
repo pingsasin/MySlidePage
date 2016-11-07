@@ -77,7 +77,7 @@ public class MainActivity extends FragmentActivity {
                             @Override
                             public void onClick(View view) {
                                 Log.i(TAG, "Dummy Page");
-                                Intent i = new Intent(getApplicationContext(), DummyPage.class);
+                                Intent i = new Intent(getApplicationContext(), Main2Activity.class);
                                 startActivity(i);
                                 Toast.makeText(MainActivity.this, "go to dummy sign up page", Toast.LENGTH_SHORT).show();
 
@@ -99,7 +99,7 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onClick(View view) {
                 Log.i(TAG, "Dummy Page");
-                Intent i = new Intent(getApplicationContext(), DummyPage.class);
+                Intent i = new Intent(getApplicationContext(), Main2Activity.class);
                 startActivity(i);
                 Toast.makeText(MainActivity.this, "go to dummy sign up page", Toast.LENGTH_SHORT).show();
             }
