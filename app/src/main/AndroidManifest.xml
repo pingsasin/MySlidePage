@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DummyPage" />
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".Main2Activity" />
     </application>
 
 </manifest>
